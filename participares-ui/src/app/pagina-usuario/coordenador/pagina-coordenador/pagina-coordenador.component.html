@@ -1,0 +1,50 @@
+<div class="container p-col-12">
+
+  <!-- Cabeçalho -->
+  <div class="title-container p-col-12">
+    <h1 style="font-size: 60px;">Menu do coordenador de eventos</h1>
+  </div>
+  <div class="text-container p-col-12">
+    <p style="margin-top: -20px; margin-bottom: 20px;">O que deseja fazer?</p>
+  </div>
+
+
+  <!-- Botões -->
+  <div class="container-align p-col-12" >
+    <!-- Indicando a rota de navegação para o Router -->
+    <nav>
+      <!-- Leva para a página de cadastro de assistente -->
+      <a [routerLink]="['/pagina-coordenador/assistentes/novo']" style="color: transparent;">
+        <button class="button-container" style="display: flex; margin: auto; text-align: center;"
+        pTooltip="Novo assistente" tooltipPosition="top">Cadastrar assistente</button>
+      </a>
+
+      <div style="width: 5%; display: flex; margin: auto;"><p-divider></p-divider></div>
+
+      <!-- Leva para a lista de assistentes -->
+      <a [routerLink]="['/pagina-coordenador/assistentes']" style="color: transparent;">
+        <button class="button-container" style="display: flex; margin: auto; text-align: center;"
+        pTooltip="Ir para lista de assistentes cadastrados" tooltipPosition="top">Lista de assistentes</button>
+      </a>
+
+      <div style="width: 5%; display: flex; margin: auto;"><p-divider></p-divider></div>
+
+      <!-- Leva para a página de cadastro de eventos -->
+      <a [routerLink]="['/eventos/novo']" style="color: transparent;">
+        <button class="button-container" style="display: flex; margin: auto; text-align: center; width: 16%;"
+        pTooltip="Criar evento" tooltipPosition="top">Criar evento</button>
+      </a>
+
+      <div style="width: 5%; display: flex; margin: auto;"><p-divider></p-divider></div>
+
+      <!-- Leva para a lista de eventos -->
+      <a [routerLink]="['/eventos']" style="color: transparent;">
+        <button class="button-container" style="display: flex; margin: auto; text-align: center; width: 16%;"
+        pTooltip="Ir para lista de eventos" tooltipPosition="top">Lista de eventos</button>
+      </a>
+
+    </nav>
+
+  </div>
+
+</div>

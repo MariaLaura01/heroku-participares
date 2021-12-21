@@ -1,0 +1,29 @@
+
+.title-adjust
+{
+  font-size: 40px;
+}
+
+@media only screen and(max-width: 480px)
+{
+  .container-align
+  {
+    width: 800px;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  .text-container
+  {
+    float: left;
+    margin-top: 6px;
+  }
+
+  .upload-container
+  {
+    float: left;
+    margin-top: 10 px;
+    margin-left: 200px;
+    padding: 13px 50px 13px;
+  }
+}

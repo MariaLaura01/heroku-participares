@@ -1,0 +1,106 @@
+<div class="container" *ngIf="evento">
+
+  <!-- Título da página -->
+  <div class="title-container p-col-12">
+    <!--CSS local-->
+    <h1 class="title-adjust"> {{evento.nome}} </h1>
+  </div>
+
+
+  <!-- Informações da página -->
+  <div class="p-col-12" style="margin-bottom: 20px;">
+
+    <div>
+      <p class="text-container"><b>Descrição: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.descricao}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Data: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.data}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Endereço: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.escola.endereco}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Escola responsável: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.escola.nome}}  </p>
+    </div>
+
+
+  </div>
+</div>
+
+<!--
+  Galeria
+  <div style="margin-top: 50px; float: left; margin-left: 200px;">
+    Colocar uma galeria aqui (apagar o style dentro desse div)
+  </div>
+
+  Galeria não sei como faz ;-;
+
+  <p-galleria  [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [numVisible]="7"
+  [circular]="false" [fullScreen]="false" [showItemNavigators]="true" [showThumbnails]="true" [baseZIndex]="100000">
+
+  <ng-template pTemplate="imagens" let-imagens>
+      <img [src]="imagens.previewImageSrc" style="width: 100%; display: block;"/>
+  </ng-template>
+
+  <ng-template pTemplate="thumbnail" let-imagens>
+      <div class="p-grid p-nogutter p-justify-center">
+          <img [src]="imagens.thumbnailImageSrc" style="display: block;"/>
+      </div>
+  </ng-template>
+-->
+<!--
+
+
+
+</p-galleria>
+
+  <div *ngIf="images" class="p-grid" style="max-width: 400px;">
+  <div *ngFor="let image of images; let index = index;" class="p-col-3" key="index">
+      <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" (click)="imageClick(index)"/>
+  </div>
+  -->
+
+<!--
+</div>
+<p-galleria [images]="imagens">
+  <ng-template let-imagem>
+    <p class="text-container" style="margin-bottom: 20px;"> {{imagem.link}} </p>
+  </ng-template>
+
+  TODO: Trocar para o link da imagem
+    <img [src]=imagem.link/>
+</p-galleria>
+-->
+<!--
+
+  Imagens em slider
+<p-carousel [value]="imagens" [numVisible]="3" [numScroll]="3" [circular]="false" [autoplayInterval]="3000"  [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+
+  </ng-template>
+  <ng-template let-imagem pTemplate="item">
+      <div class="product-item">
+          <div class="product-item-content">
+              <div class="p-mb-3">
+                  <img  class="product-image" src={{product.product_image}} alt={{product.product_title}}></div>
+              <div>
+                  <h4 class="p-mb-1">{{product.product_title}}</h4>
+                  <h6 class="p-mt-0 p-mb-3">{{product.product_price}}</h6>
+                  <div class="car-buttons p-mt-5">
+                      <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+                      <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
+                      <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel>
+-->

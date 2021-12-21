@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="p-col-12">
+    <h1 class="title-container">
+      {{editando ? 'Edição de' : 'Cadastro de' }} evento
+    </h1>
+  </div>
+  <div class="text-container p-col-12">
+    <p style="margin-top: 20px; margin-bottom: 20px; color: darkgreen;">{{mensagem}}</p>
+  </div>
+
+  <div class="form-container">
+    <form #form="ngForm" autocomplete="off" action="" (ngSubmit)="salvar(form)">
+      <div class="p-grid">
+
+        <!--Calendário-->
+        <div class="p-col-6 p-md-3 p-fluid">
+          <label class="text-container" style="margin-bottom: 10px;">Data de realização</label>
+          <p-calendar dateFormat="dd/MM/yy" name="DataRealizacao" [(ngModel)]="evento.data" required></p-calendar>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Nome: </label>
+          <div class="p-col-12">
+            <input pInputText class="input-container" type="text" placeholder="Nome" name="nome" [(ngModel)]="evento.nome" required/>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Descrição: </label>
+          <div class="p-col-12">
+            <input pInputText class="input-container" type="text" placeholder="Descrição" name="descricao" [(ngModel)]="evento.descricao"/>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Endereço: </label>
+          <div class="p-col-12">
+            <input pInputText class="input-container" type="text" placeholder="Endereço" name="endereco" [(ngModel)]="evento.local"/>
+          </div>
+        </div>
+
+        <!-- Botão salvar -->
+        <div class="p-col-12">
+          <button type="submit" id="salvar" [disabled]="form.invalid">Salvar</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="login-container" style="max-width: 400px; margin: auto">
+
+  <form autocomplete="off" action="" #f="ngForm"> <!-- (ngSubmit)="Entrar(f)"  -->
+    <div class="p-grid p-fluid">
+
+      <!-- Título -->
+      <div class="title-container p-col-12">
+        <h1 style="font-size: 40px;">Entrar</h1>
+      </div>
+
+      <!-- Caixas de texto -->
+      <div class="p-field p-col-12">
+        <label class="text-container p-col-fixed" style="margin-bottom: 10px;">Usuario: </label>
+        <div class="p-col">
+          <input class="input-container" name="usuario" id="usuario"
+          placeholder="Nome de Usuario" ngModel required #usuario/>
+        </div>
+      </div>
+
+      <div class="p-field p-col-12">
+        <label class="text-container p-col-fixed" style="margin-bottom: 10px;">Senha: </label>
+        <div class="p-col">
+          <input class="input-container" type="password" name="senha" id="senha" placeholder="Senha" ngModel required #senha/>
+        </div>
+      </div>
+
+      <!-- Botão entrar -->
+      <div class="p-col-12">
+        <button type="submit" id="entrar" [disabled]="!f.valid"
+         (click)="login(usuario.value, senha.value)">Entrar</button>
+      </div>
+
+    </div>
+  </form>
+</div>

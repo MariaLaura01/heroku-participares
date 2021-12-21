@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="p-col-12">
+    <h1 class="title-container">
+      {{editando ? 'Edição de' : 'Cadastro de' }} assistente de eventos
+    </h1>
+  </div>
+
+  <div class="text-container p-col-12">
+    <p style="margin-top: 20px; margin-bottom: 20px; color: darkgreen;">{{mensagem}}</p>
+  </div>
+
+  <div class="form-container">
+    <form #form="ngForm" autocomplete="off" action="" (ngSubmit)="salvar(form)">
+      <div class="p-grid">
+
+        <div class="p-col-12">
+          <label class="text-container p-col-fixed" style="margin-bottom: 10px;">Login: </label>
+          <div class="p-col-12">
+            <input pInputText class="input-container" placeholder="Nome" name="login" [(ngModel)]="usuario.login" required/>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container p-col-fixed" style="margin-bottom: 10px;">Senha: </label>
+          <div class="p-col-12">
+            <input pInputText class="input-container" type="password" placeholder="Senha" name="senha" [(ngModel)]="usuario.senha" required/>
+          </div>
+        </div>
+
+        <!-- Botão salvar -->
+        <div class="p-col-12">
+          <button type="submit" id="salvar" [disabled]="form.invalid">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

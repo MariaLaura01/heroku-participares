@@ -1,0 +1,82 @@
+<div class="container" *ngIf="evento">
+
+  <!-- Título da página -->
+  <div class="title-container p-col-12">
+    <!--CSS local-->
+    <h1 class="title-adjust"> {{evento.nome}} </h1>
+  </div>
+
+
+  <!-- Informações da página -->
+  <div class="p-col-12" style="margin-bottom: 20px;" >
+
+    <div>
+      <p class="text-container"><b>Descrição: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.descricao}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Data: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.data}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Endereço: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.endereco}} </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Escola responsável: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.codigo_escola}}  </p> <!-- Inserir o nome da escola ao inves do codigo-->
+    </div>
+
+    <!-- Conteúdo antes da galeria -->
+    <div class="splitter-container container-align">
+      <div class="upload-container" style="margin-top: 10px;">
+        <p-fileUpload  pTooltip="Nova foto" tooltipPosition="top" #fubauto mode="basic" name="myfile[]" url="./upload.php" accept="image/*" [auto]="true" chooseLabel="Nova foto"></p-fileUpload>
+      </div>
+      <div class="text-container" style="float: left; margin-top: 10px;"><p><b>Fotos:</b></p></div>
+
+      <div>
+        <!-- Indicando onde o caminho do botão editar -->
+        <nav>
+          <!-- Leva para a página de ediação do evento especifico -->
+          <a [routerLink]="['/editar-evento', evento.codigo]">
+            <button class="button-container" style="margin: 6px; float: right;" pTooltip="Editar evento" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar evento</button>
+          </a>
+        </nav>
+        <!-- Botão 'apagar' não troca de página por isso está fora do nav -->
+        <button class="button-container-apagar" style="margin: 6px; float: right;" pTooltip="Apagar evento" tooltipPosition="top"
+        (click)="confirmarExclusao(evento)">
+          <i class="pi pi-trash"></i>  Apagar evento
+        </button>
+    </div>
+
+  </div>
+
+  <!-- Galeria
+  <div  class="p-shadow-24" style="margin-top: 80px; float: left;">
+      Colocar uma galeria aqui (apagar o style dentro desse div)
+  </div>-->
+
+  <p-galleria  [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [numVisible]="7"
+  [circular]="false" [fullScreen]="false" [showItemNavigators]="true" [showThumbnails]="true" [baseZIndex]="100000">
+
+  <ng-template pTemplate="imagens" let-imagens>
+      <img [src]="imagens.previewImageSrc" style="width: 100%; display: block;"/>
+  </ng-template>
+
+  <ng-template pTemplate="thumbnail" let-imagens>
+      <div class="p-grid p-nogutter p-justify-center">
+          <img [src]="imagens.thumbnailImageSrc" style="display: block;"/>
+      </div>
+  </ng-template>
+
+</p-galleria>
+
+<div *ngIf="images" class="p-grid" style="max-width: 400px;">
+  <div *ngFor="let image of images; let index = index;" class="p-col-3" key="index">
+      <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" (click)="imageClick(index)"/>
+  </div>
+
+</div>
